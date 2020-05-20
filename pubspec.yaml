@@ -1,0 +1,64 @@
+name: vaccation_nanny
+description: Application for nannies to sign up and starting serving customers
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+  modal_progress_hud: ^0.1.3
+  image_picker: ^0.5.4+3 ##created an android x depencendy version error when first used with ^0.6.5+2
+  firebase_core: ^0.4.4+3
+  firebase_auth: ^0.16.0
+  firebase_storage: ^3.1.5
+  cloud_firestore: ^0.13.5  ## created android x dependency error at ^0.13.5 and ^0.12.11 and 0.11.0+2, version error with ^0.9.13+1
+  font_awesome_flutter: ^8.8.1
+  geolocator: ^5.3.1
+  google_maps_flutter: ^0.5.27+1
+  location: ^3.0.2
+  google_map_polyline: ^0.2.0+1
+  flutter_polyline_points: ^0.1.0
+  http: ^0.12.1
+  video_player: ^0.10.10
+
+
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+     - images/
+     - videos/licensing.mp4
+#    - images/a_dot_ham.jpeg
+
+
+  fonts:
+    - family: Nexa Bold
+      fonts:
+        - asset: fonts/FontsFree-Net-n1.ttf
+
+    - family: VN font
+      fonts:
+        - asset: fonts/VNfont.ttf
+
+  #    - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
