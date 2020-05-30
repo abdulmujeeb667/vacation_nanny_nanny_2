@@ -25,6 +25,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
   bool travelCapacity = false;
   bool specialCapacity = false;
   String paypal = '';
+  String last6SSN = '';
   String locationName = '';
   var latitude;
   var longitude;
@@ -56,6 +57,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
       travelCapacity = userData['travelCapacity'];
       specialCapacity = userData['specialCapacity'];
       paypal = userData['paypal'];
+      last6SSN = userData['last6SSN'];
       locationName = userData['locationName'];
       latitude = userData['latitude'];
       longitude = userData['longitude'];
@@ -245,6 +247,21 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                     ),
                     Padding(
                       padding: EdgeInsets.fromLTRB(25, 10, 25, 0),
+                      child: TextField(
+                        keyboardType: TextInputType.number,
+                        controller: TextEditingController(text: last6SSN),
+                        style: TextStyle(color: Colors.black),
+                        onChanged: (value) {
+                          last6SSN = value;
+                          print(last6SSN);
+                        },
+                        decoration: kInputDecoration.copyWith(
+                          hintText: 'Enter last 6 of your SSN',
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(25, 10, 25, 0),
                       child: Row(
                         children: <Widget>[
                           Expanded(
@@ -404,6 +421,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                                       travelCapacity: travelCapacity,
                                       specialCapacity: specialCapacity,
                                       paypal: paypal,
+                                      last6SSN: last6SSN,
                                       locationName: locationName,
                                       latitude: latitude,
                                       longitude: longitude,

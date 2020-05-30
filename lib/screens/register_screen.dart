@@ -32,6 +32,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   dynamic _idImage;
   dynamic profileimageUrl;
   dynamic idImageUrl;
+  bool agreement = false;
 
   @override
   Widget build(BuildContext context) {
@@ -321,9 +322,55 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 24.0,
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(15, 20, 25, 0),
+                      child: Row(
+                        children: <Widget>[
+                          Checkbox(
+                            value: agreement,
+                            activeColor: Color(0XFFfd992a),
+                            onChanged: (value) {
+                              setState(() {
+                                agreement = value;
+                              });
+                            },
+                          ),
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                    title: Text('Background checks details'),
+                                    content: SingleChildScrollView(
+                                      child: Text(
+                                          'You agree that before You receive access to the Platform, You will consent to and pass a background check based on Your own social security number. You also agree that, at its sole discretion and in accordance with applicable law, Vacation Nanny may require you to consent to and pass additional background checks.'),
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: RichText(
+                                text: TextSpan(children: [
+                                  TextSpan(
+                                    text: 'I have read and I agree to the',
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.black),
+                                  ),
+                                  TextSpan(
+                                    text: ' the background checks policy',
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.blue),
+                                  ),
+                                ]),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
+                    // SizedBox(
+                    //   height: 24.0,
+                    // ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 25, vertical: 16),
@@ -366,6 +413,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               setState(() {
                                 spinner = true;
                               });
+                              if (agreement == false) {
+                                throw "Please accept the agreement";
+                              }
                               final newuser =
                                   await _auth.createUserWithEmailAndPassword(
                                       email: email, password: password);
