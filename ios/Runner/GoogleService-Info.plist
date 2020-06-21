@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1086098290585-cpodajggpmc2t5p7qt3h3f3olr95csie.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1086098290585-cpodajggpmc2t5p7qt3h3f3olr95csie</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBK16VgJ7o28mHML-TPCEqU1kX42cmVv3U</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1086098290585</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.jassybrown.vaccationNanny</string>
+	<key>PROJECT_ID</key>
+	<string>vacation-nanny</string>
+	<key>STORAGE_BUCKET</key>
+	<string>vacation-nanny.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1086098290585:ios:f738e01492a6f35a778508</string>
+	<key>DATABASE_URL</key>
+	<string>https://vacation-nanny.firebaseio.com</string>
+</dict>
+</plist>
