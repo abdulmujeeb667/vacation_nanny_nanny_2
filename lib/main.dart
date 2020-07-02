@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vaccation_nanny/screens/active_work_screen.dart';
 import 'package:vaccation_nanny/screens/calendar_screen.dart';
+import 'package:vaccation_nanny/screens/correction_redirect_screen.dart';
 import 'package:vaccation_nanny/screens/family_details_screen.dart';
 import 'package:vaccation_nanny/screens/licensing_video_screen.dart';
 import 'package:vaccation_nanny/screens/requests_screen.dart';
@@ -36,6 +37,7 @@ class VacationNanny extends StatelessWidget {
       initialRoute: SplashScreen.id,
       routes: {
         SplashScreen.id: (context) => SplashScreen(),
+        CorrectionRedirectScreen.id: (context) => CorrectionRedirectScreen(),
         WelcomeScreen.id: (context) => WelcomeScreen(),
         RegistrationScreen.id: (context) => RegistrationScreen(),
         DashboardScreen.id: (context) => DashboardScreen(),

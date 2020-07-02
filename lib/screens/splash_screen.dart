@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vaccation_nanny/screens/correction_redirect_screen.dart';
 import 'package:vaccation_nanny/screens/dashboard_screen.dart';
 import 'package:vaccation_nanny/screens/welcome_screen.dart';
 import 'package:vaccation_nanny/constants.dart';
@@ -27,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (loggedInUser != null) {
         Navigator.pushReplacementNamed(context, DashboardScreen.id);
       } else {
-        Navigator.pushReplacementNamed(context, WelcomeScreen.id);
+        Navigator.pushReplacementNamed(context, CorrectionRedirectScreen.id);
       }
     });
   }

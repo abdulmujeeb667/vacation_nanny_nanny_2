@@ -1,7 +1,7 @@
 name: vaccation_nanny
 description: Application for nannies to sign up and starting serving customers
 
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -25,6 +25,8 @@ dependencies:
   flutter_polyline_points: ^0.1.0
   http: ^0.12.1
   video_player: ^0.10.10
+  url_launcher: ^5.4.11
+
 
 
 
