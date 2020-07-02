@@ -234,7 +234,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           address = value;
                         },
                         decoration: kInputDecoration.copyWith(
-                          hintText: 'Enter Your address',
+                          hintText: 'Enter Your address (optional)',
                         ),
                       ),
                     ),
@@ -316,7 +316,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             Padding(
                               padding: EdgeInsets.fromLTRB(10, 52, 0, 0),
                               child: Text(
-                                  'Upload image of\n driver\'s license, I.D. \nor Passport'),
+                                  'Upload image of\n driver\'s license, I.D. \nor Passport (optional)'),
                             ),
                           ],
                         ),
@@ -399,15 +399,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 'Please enter a password of atleast 6 characters');
                           } else if (password2 != password) {
                             showASnackBar(context, 'Passwords don\'t match');
-                          } else if (address == null || address.length == 0) {
-                            showASnackBar(
-                                context, 'Please provide your address');
                           } else if (phone == null || phone.length == 0) {
                             showASnackBar(
                                 context, 'Please provide your contact number');
-                          } else if (_idImage == null) {
-                            showASnackBar(
-                                context, 'Please provide an ID picture');
                           } else {
                             try {
                               setState(() {
@@ -422,20 +416,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               if (newuser != null) {
                                 profileimageUrl =
                                     await uploadPic(_profileimage);
-                                idImageUrl = await uploadPic(_idImage);
+                                if (_idImage != null) {
+                                  idImageUrl = await uploadPic(_idImage);
+                                }
 
                                 await FireStoreDatabase(uid: newuser.user.uid)
                                     .updateUserData(
                                         firstName: firstName,
                                         lastName: lastName,
                                         email: email,
-                                        address: address,
+                                        address: address ??
+                                            "iOS user - no address entered",
                                         phone: phone,
                                         weightCapacity: weightCapacity.toInt(),
                                         travelCapacity: travelCapacity,
                                         specialCapacity: specialCapacity,
                                         profileImageUrl: profileimageUrl,
-                                        idImageUrl: idImageUrl);
+                                        idImageUrl: idImageUrl ??
+                                            "https://firebasestorage.googleapis.com/v0/b/vacation-nanny.appspot.com/o/iosidimage.png?alt=media&token=fed503da-7f2e-4642-881f-66a8499210ca");
                                 Navigator.pushReplacementNamed(
                                     context, DashboardScreen.id);
                               }

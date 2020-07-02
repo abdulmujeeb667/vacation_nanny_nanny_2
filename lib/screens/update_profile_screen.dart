@@ -227,7 +227,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                           address = value;
                         },
                         decoration: kInputDecoration.copyWith(
-                          hintText: 'Enter Your address',
+                          hintText: 'Enter Your address (optional)',
                         ),
                       ),
                     ),
@@ -371,7 +371,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                             Padding(
                               padding: EdgeInsets.fromLTRB(10, 52, 0, 0),
                               child: Text(
-                                  'Upload image of\n driver\'s license, I.D. \nor Passport'),
+                                  'Upload image of\n driver\'s license, I.D. \nor Passport (optional)'),
                             ),
                           ],
                         ),
@@ -393,9 +393,6 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                               lastName.length == 0) {
                             showASnackBar(context,
                                 'Please provide your first and last name');
-                          } else if (address == null || address.length == 0) {
-                            showASnackBar(
-                                context, 'Please provide your address');
                           } else {
                             try {
                               setState(() {
@@ -415,7 +412,10 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                                       firstName: firstName,
                                       lastName: lastName,
                                       email: loggedInUser.email,
-                                      address: address,
+                                      address:
+                                          address == null || address.length < 1
+                                              ? "iOS user - no address entered"
+                                              : address,
                                       phone: phone,
                                       weightCapacity: weightCapacity.toInt(),
                                       travelCapacity: travelCapacity,
